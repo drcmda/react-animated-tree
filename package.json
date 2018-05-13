@@ -76,7 +76,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.46",
-    "antd": "^3.5.1",
     "react-spring": "^5.1.6"
   }
 }

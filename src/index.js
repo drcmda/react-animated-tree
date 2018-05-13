@@ -10,7 +10,6 @@ const styles = {
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflowX: 'hidden',
-    width: '100%',
     verticalAlign: 'middle',
   },
   toggle: {
@@ -20,17 +19,17 @@ const styles = {
     cursor: 'pointer',
     verticalAlign: 'middle',
   },
-  contents: {
-    willChange: 'transform, opacity, height',
-    marginLeft: 6,
-    padding: '4px 0px 0px 14px',
-    borderLeft: '1px dashed rgba(255,255,255,0.4)',
-  },
   type: {
     textTransform: 'uppercase',
     fontFamily: 'monospace',
     fontSize: '0.6em',
     verticalAlign: 'middle',
+  },
+  contents: {
+    willChange: 'transform, opacity, height',
+    marginLeft: 6,
+    padding: '4px 0px 0px 14px',
+    borderLeft: '1px dashed rgba(255,255,255,0.4)',
   },
 }
 
