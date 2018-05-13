@@ -21,15 +21,9 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 ```jsx
 import Tree from 'react-animated-tree'
 
-<Tree
-    content="Name"
-    type="Type"
-    open
-    canHide
-    visible
-    onClick={visible => console.log(visible)}>
-  <Tree content="Subtree">
-    <Tree content="Sub-sub-tree" />
+<Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
+  <Tree content="Contents">
+    <Tree content="Seeds" />
   <Tree>
 <Tree>
 ```
