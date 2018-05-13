@@ -28,7 +28,7 @@ import Tree from 'react-animated-tree'
 <Tree>
 ```
 
-You can also create your own effects, study [react-spring](https://github.com/drcmda/react-spring/) for all the properties you can set:
+You can create your own effects by passing a [react-spring](https://github.com/drcmda/react-spring/) config. Everything that `Spring` can take in is allowed (from, to, immediate, config, onRest, etc.). The config below is the default (items fade in while moving in 20px from the right). You can go wild here by rotating, flipping, whatever you feel like.
 
 ```jsx
 import Tree from 'react-animated-tree'
