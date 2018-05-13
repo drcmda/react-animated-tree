@@ -1,0 +1,82 @@
+{
+  "name": "react-animated-tree",
+  "version": "1.0.0",
+  "description": "Animate React with ease",
+  "main": "dist/react-animated-tree.cjs.js",
+  "module": "dist/react-animated-tree.es.js",
+  "typings": "index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "API.md",
+    "index.d.ts"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
+    "prepare": "npm run build",
+    "test": "echo will do",
+    "precommit": "lint-staged"
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "jsxBracketSameLine": true,
+    "tabWidth": 2,
+    "printWidth": 80
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drcmda/react-animated-tree.git"
+  },
+  "keywords": [
+    "react",
+    "motion",
+    "animated",
+    "animation",
+    "spring"
+  ],
+  "author": "Paul Henschel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drcmda/react-animated-tree/issues"
+  },
+  "homepage": "https://github.com/drcmda/react-animated-tree#readme",
+  "devDependencies": {
+    "@babel/core": "7.0.0-beta.46",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
+    "@babel/preset-env": "7.0.0-beta.46",
+    "@babel/preset-react": "7.0.0-beta.46",
+    "@babel/preset-stage-2": "7.0.0-beta.46",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.0.0-beta.2",
+    "husky": "^1.0.0-rc.2",
+    "lint-staged": "^7.0.5",
+    "prettier": "^1.12.1",
+    "rimraf": "2.6.2",
+    "rollup": "0.58.2",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-commonjs": "^9.1.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-size-snapshot": "^0.4.0",
+    "rollup-plugin-uglify": "^3.0.0"
+  },
+  "peerDependencies": {
+    "prop-types": "15.x.x",
+    "react": ">= 16.3.2",
+    "react-dom": ">= 16.3.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.0.0-beta.46",
+    "antd": "^3.5.1",
+    "react-spring": "^5.1.4"
+  }
+}
