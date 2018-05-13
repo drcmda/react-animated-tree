@@ -16,7 +16,7 @@ const Contents = ({ children, ...styles }) => (
   </animated.div>
 )
 
-export default class Tree extends React.Component {
+export default class Tree extends React.PureComponent {
   static propTypes = {
     open: PropTypes.bool,
     visible: PropTypes.bool,
