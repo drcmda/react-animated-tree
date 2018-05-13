@@ -10,10 +10,24 @@ A simple, configurable tree view control for React.
 
 Demo: https://codesandbox.io/embed/rrw7mrknyp
 
+* `content`, Name of the node, can be strings or React-components
+* `type`, optional: description, will be presented a little smaller
+* `open`, optional: open state
+* `canHide`, optional: when set true will display a little eye icon
+* `visible`, optional: when canHide is true, visible controls the visible-state
+* `onClick`, optional: click events on the eye
+* `springConfig`, optional: react-spring animation config
+
 ```jsx
 import Tree from 'react-animated-tree'
 
-<Tree content="Name" open canHide visible onClick={visible => console.log(visible)}>
+<Tree
+    content="Name"
+    type="Type"
+    open
+    canHide
+    visible
+    onClick={visible => console.log(visible)}>
   <Tree content="Subtree">
     <Tree content="Sub-sub-tree" />
   <Tree>
@@ -36,7 +50,7 @@ config = open => ({
 
 const SpecialTree = props => <Tree {...props} springConfig={config} />
 
-<SpecialTree content="Name" open canHide visible>
+<SpecialTree content="Name">
   <SpecialTree content="Subtree">
     <SpecialTree content="Sub-sub-tree" />
   <SpecialTree>
