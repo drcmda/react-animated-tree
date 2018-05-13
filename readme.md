@@ -10,11 +10,11 @@ A simple, configurable tree view control for React.
 
 Demo: https://codesandbox.io/embed/rrw7mrknyp
 
-* `content`, Name of the node, can be strings or React-components
-* `type`, optional: description, will be presented a little smaller
-* `open`, optional: open state
-* `canHide`, optional: when set true will display a little eye icon
-* `visible`, optional: when canHide is true, visible controls the visible-state
+* `content`, Name of the node (string or React-component)
+* `type`, optional description, good for displaying icons, too (string or React-component)
+* `open`, optional: default open state
+* `canHide`, optional: when set true displays an eye icon
+* `visible`, optional: default visible state
 * `onClick`, optional: click events on the eye
 * `springConfig`, optional: react-spring animation config
 
