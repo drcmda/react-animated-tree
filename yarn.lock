@@ -1137,10 +1137,6 @@ babel-plugin-syntax-object-rest-spread@^6.13.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
 
-babel-plugin-transform-react-remove-prop-types@0.4.13:
-  version "0.4.13"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.13.tgz#331cfc05099a808238311d78319c27460d481189"
-
 babel-preset-jest@^23.0.0-beta.2:
   version "23.0.0-charlie.1"
   resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-23.0.0-charlie.1.tgz#188ac3695737c1f8e76b1737e3064d2d8c783141"
@@ -4337,9 +4333,9 @@ react-slick@~0.23.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-spring@^5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.4.tgz#beb5d55df5baeb9fb91776097dc7c6c7e1a7b7c2"
+react-spring@^5.1.5:
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.5.tgz#aacb62f345ef39e7a83ce3cca13bccaccd3ae3db"
   dependencies:
     "@babel/runtime" "7.0.0-beta.46"
 
