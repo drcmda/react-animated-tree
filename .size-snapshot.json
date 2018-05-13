@@ -1,16 +1,16 @@
 {
   "dist/react-animated-tree.es.js": {
-    "bundled": 7292,
-    "minified": 5285,
-    "gzipped": 1905,
+    "bundled": 7308,
+    "minified": 5289,
+    "gzipped": 1909,
     "treeshaked": {
-      "rollup": 4841,
-      "webpack": 5716
+      "rollup": 4845,
+      "webpack": 5720
     }
   },
   "dist/react-animated-tree.umd.js": {
-    "bundled": 10185,
-    "minified": 6051,
-    "gzipped": 2301
+    "bundled": 10201,
+    "minified": 6055,
+    "gzipped": 2304
   }
 }
