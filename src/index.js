@@ -28,28 +28,29 @@ export default class Tree extends React.PureComponent {
 
   constructor(props) {
     super()
-    this.state = { open: props.open, visible: props.visible }
+    this.state = { open: props.open, visible: props.visible, immediate: false }
   }
   toggle = () =>
-    this.props.children && this.setState(state => ({ open: !state.open }))
+    this.props.children &&
+    this.setState(state => ({ open: !state.open, immediate: false }))
   toggleVisibility = () => {
     this.setState(
-      state => ({ visible: !state.visible }),
+      state => ({ visible: !state.visible, immediate: true }),
       () => this.props.onClick && this.props.onClick(this.state.visible)
     )
   }
   componentWillReceiveProps(props) {
-    this.setState(
-      ['open', 'visible'].reduce(
+    this.setState(state => {
+      return ['open', 'visible'].reduce(
         (acc, val) =>
           this.props[val] !== props[val] ? { ...acc, [val]: props[val] } : acc,
         {}
       )
-    )
+    })
   }
 
   render() {
-    const { open, visible } = this.state
+    const { open, visible, immediate } = this.state
     const { children, content, type, style, canHide, springConfig } = this.props
     const Icon =
       Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
@@ -104,6 +105,7 @@ export default class Tree extends React.PureComponent {
         <span style={{ verticalAlign: 'middle' }}>{content}</span>
         <Spring
           native
+          immediate={immediate}
           config={{
             ...config.default,
             restSpeedThreshold: 1,
@@ -113,7 +115,7 @@ export default class Tree extends React.PureComponent {
           to={{
             height: open ? 'auto' : 0,
             opacity: open ? 1 : 0,
-            transform: open ? 'translate3d(0,0,0)' : 'translate3d(20px,0,0)',
+            transform: open ? 'translate3d(0px,0,0)' : 'translate3d(20px,0,0)',
           }}
           {...springConfig && springConfig(open)}
           render={Contents}>
