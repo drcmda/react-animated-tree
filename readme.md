@@ -36,11 +36,13 @@ config = open => ({
   to: {
     height: open ? 'auto' : 0,
     opacity: open ? 1 : 0,
-    transform: open ? 'translate3d(0,0,0)' : 'translate3d(20px,0,0)',
+    transform: open ? 'translate3d(0px,0,0)' : 'translate3d(20px,0,0)',
   },
 })
 
 const SpecialTree = props => <Tree {...props} springConfig={config} />
 
-<SpecialTree />
+<SpecialTree content="Orange">
+  <SpecialTree content="Juice" />
+</SpecialTree>
 ```
