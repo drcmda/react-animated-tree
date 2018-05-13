@@ -28,11 +28,9 @@ import Tree from 'react-animated-tree'
 <Tree>
 ```
 
-You can create your own effects by passing a [react-spring](https://github.com/drcmda/react-spring/) config. Everything that `Spring` can take in is allowed (from, to, immediate, config, onRest, etc.). The config below is the default (items fade in while moving in 20px from the right). You can go wild here by rotating, flipping, whatever you feel like.
+Create your own effects by passing a [react-spring](https://github.com/drcmda/react-spring/) config. The config below is the default (items fade in while moving in 20px from the right). You can go wild here by rotating, flipping, etc.
 
 ```jsx
-import Tree from 'react-animated-tree'
-
 config = open => ({
   from: { height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' },
   to: {
@@ -44,9 +42,5 @@ config = open => ({
 
 const SpecialTree = props => <Tree {...props} springConfig={config} />
 
-<SpecialTree content="Name">
-  <SpecialTree content="Subtree">
-    <SpecialTree content="Sub-sub-tree" />
-  <SpecialTree>
-<SpecialTree>
+<SpecialTree />
 ```
