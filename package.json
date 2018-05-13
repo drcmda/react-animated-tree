@@ -1,6 +1,6 @@
 {
   "name": "react-animated-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Animate React with ease",
   "main": "dist/react-animated-tree.cjs.js",
   "module": "dist/react-animated-tree.es.js",
