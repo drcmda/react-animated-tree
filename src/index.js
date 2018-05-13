@@ -7,7 +7,7 @@ const Contents = ({ children, ...styles }) => (
   <animated.div
     style={{
       ...styles,
-      willChange: 'height',
+      willChange: 'transform, opacity, height',
       marginLeft: 6,
       padding: '4px 0px 0px 14px',
       borderLeft: '1px dashed rgba(255,255,255,0.4)',
