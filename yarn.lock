@@ -3727,9 +3727,9 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-spring@^5.1.7:
-  version "5.1.7"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.7.tgz#2d5e19f8658f06eb03586d37ca929f472bd0cd86"
+react-spring@^5.1.8:
+  version "5.1.8"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.8.tgz#64cb078cd488b1c2f8ec5703b8209460d283c0a6"
   dependencies:
     "@babel/runtime" "7.0.0-beta.46"
 
