@@ -703,9 +703,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@types/estree@0.0.38":
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
+"@types/estree@0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
 
 "@types/node@*":
   version "10.0.8"
@@ -3727,9 +3727,9 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-spring@^5.1.8:
-  version "5.1.8"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.8.tgz#64cb078cd488b1c2f8ec5703b8209460d283c0a6"
+react-spring@^5.1.10:
+  version "5.1.10"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.10.tgz#6c2c9be2c9222691a92eeeb1fe0ef876889801c5"
   dependencies:
     "@babel/runtime" "7.0.0-beta.46"
 
@@ -3995,11 +3995,11 @@ rollup-pluginutils@^2.0.1:
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
-rollup@0.58.2:
-  version "0.58.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.58.2.tgz#2feddea8c0c022f3e74b35c48e3c21b3433803ce"
+rollup@0.59.1:
+  version "0.59.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.59.1.tgz#86cbceaecd861df1317a0aa29207173de23e6a5d"
   dependencies:
-    "@types/estree" "0.0.38"
+    "@types/estree" "0.0.39"
     "@types/node" "*"
 
 run-node@^1.0.0:
