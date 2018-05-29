@@ -51,23 +51,23 @@
   },
   "homepage": "https://github.com/drcmda/react-animated-tree#readme",
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.46",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
-    "@babel/preset-env": "7.0.0-beta.46",
-    "@babel/preset-react": "7.0.0-beta.46",
-    "@babel/preset-stage-2": "7.0.0-beta.46",
+    "@babel/core": "7.0.0-beta.49",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
+    "@babel/preset-env": "7.0.0-beta.49",
+    "@babel/preset-react": "7.0.0-beta.49",
+    "@babel/preset-stage-2": "7.0.0-beta.49",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "23.0.0-beta.2",
-    "husky": "^1.0.0-rc.2",
-    "lint-staged": "^7.0.5",
-    "prettier": "^1.12.1",
+    "babel-jest": "23.0.1",
+    "husky": "^1.0.0-rc.8",
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.13.2",
     "rimraf": "2.6.2",
-    "rollup": "0.59.1",
+    "rollup": "0.59.4",
     "rollup-plugin-babel": "^4.0.0-beta.4",
-    "rollup-plugin-commonjs": "^9.1.2",
+    "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-size-snapshot": "^0.4.0",
-    "rollup-plugin-uglify": "^3.0.0"
+    "rollup-plugin-size-snapshot": "^0.5.1",
+    "rollup-plugin-uglify": "^4.0.0"
   },
   "peerDependencies": {
     "prop-types": "15.x.x",
@@ -75,7 +75,7 @@
     "react-dom": ">= 16.3.2"
   },
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.46",
-    "react-spring": "^5.1.10"
+    "@babel/runtime": "7.0.0-beta.49",
+    "react-spring": "^5.3.7"
   }
 }
