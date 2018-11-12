@@ -9,7 +9,7 @@ const styles = {
     padding: '4px 0px 0px 0px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    overflowX: 'hidden',
+    overflow: 'hidden',
     verticalAlign: 'middle',
   },
   toggle: {
