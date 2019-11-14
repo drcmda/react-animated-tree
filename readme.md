@@ -17,11 +17,13 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 * `visible`, optional: default visible state
 * `onClick`, optional: click events on the eye
 * `springConfig`, optional: react-spring animation config
+* `onItemClick`, optional: click events on the tree span item (pass dataId props as parameter)
+* `dataId`, optional: custom identifier of tree item
 
 ```jsx
 import Tree from 'react-animated-tree'
 
-<Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
+<Tree content="Apple" type="Fruit" open canHide visible onClick={console.log} dataId={"apple"} onItemClick={dataId => console.log(dataId)}>
   <Tree content="Contents">
     <Tree content="Seeds" />
   <Tree>

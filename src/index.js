@@ -9,7 +9,7 @@ const styles = {
     padding: '4px 0px 0px 0px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    overflowX: 'hidden',
+    overflow: 'hidden',
     verticalAlign: 'middle',
   },
   toggle: {
@@ -47,6 +47,8 @@ export default class Tree extends React.PureComponent {
     canHide: PropTypes.bool,
     content: PropTypes.node,
     springConfig: PropTypes.func,
+    onItemClick: PropTypes.func,
+    dataId: PropTypes.string,
   }
 
   constructor(props) {
@@ -63,6 +65,10 @@ export default class Tree extends React.PureComponent {
       state => ({ visible: !state.visible, immediate: true }),
       () => this.props.onClick && this.props.onClick(this.state.visible)
     )
+  }
+
+  onItemClick = event => {
+    this.props.onItemClick && this.props.onItemClick(event.target.dataset.id);
   }
 
   componentWillReceiveProps(props) {
@@ -97,7 +103,7 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span style={{ verticalAlign: 'middle' }}>{content}</span>
+        <span data-id={dataId} onClick={this.onItemClick} style={{ verticalAlign: 'middle' }}>{content}</span>
         <Spring
           native
           immediate={immediate}
