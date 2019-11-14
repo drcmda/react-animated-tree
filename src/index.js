@@ -68,7 +68,7 @@ export default class Tree extends React.PureComponent {
   }
 
   onItemClick = event => {
-    this.props.onItemClick && this.props.onItemClick(event.target.dataset.id);
+    this.props.onItemClick && this.props.onItemClick(event.target.dataset.id)
   }
 
   componentWillReceiveProps(props) {
@@ -103,7 +103,12 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span data-id={dataId} onClick={this.onItemClick} style={{ verticalAlign: 'middle' }}>{content}</span>
+        <span
+          data-id={this.props.dataId}
+          onClick={this.onItemClick}
+          style={{ verticalAlign: 'middle' }}>
+          {content}
+        </span>
         <Spring
           native
           immediate={immediate}
@@ -118,7 +123,7 @@ export default class Tree extends React.PureComponent {
             opacity: open ? 1 : 0,
             transform: open ? 'translate3d(0px,0,0)' : 'translate3d(20px,0,0)',
           }}
-          {...springConfig && springConfig(open)}
+          {...(springConfig && springConfig(open))}
           render={Contents}>
           {children}
         </Spring>
