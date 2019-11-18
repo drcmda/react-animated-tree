@@ -10,15 +10,16 @@ A simple, configurable tree view control for React.
 
 Demo: https://codesandbox.io/embed/rrw7mrknyp
 
-* `content`, Name of the node (string or React-component)
-* `type`, optional description, good for displaying icons, too (string or React-component)
-* `open`, optional: default open state
-* `canHide`, optional: when set true displays an eye icon
-* `visible`, optional: default visible state
-* `onClick`, optional: click events on the eye
-* `springConfig`, optional: react-spring animation config
-* `onItemClick`, optional: click events on the tree span item (pass dataId props as parameter)
-* `dataId`, optional: custom identifier of tree item
+- `content`, Name of the node (string or React-component)
+- `type`, optional description, good for displaying icons, too (string or React-component)
+- `open`, optional: default open state
+- `canHide`, optional: when set true displays an eye icon
+- `visible`, optional: default visible state
+- `onClick`, optional: click events on the eye
+- `springConfig`, optional: react-spring animation config
+- `onItemClick`, optional: click events on the tree span item (pass itemId props as parameter)
+- `onItemToggle`, optional: click events on the toggle icon, parameters: itemId, isOpen.
+- `itemId`, optional: custom identifier of tree item
 
 ```jsx
 import Tree from 'react-animated-tree'

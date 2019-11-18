@@ -46,19 +46,29 @@ export default class Tree extends React.PureComponent {
     visible: PropTypes.bool,
     canHide: PropTypes.bool,
     content: PropTypes.node,
+    itemId: PropTypes.string,
     springConfig: PropTypes.func,
     onItemClick: PropTypes.func,
-    dataId: PropTypes.string,
+    onItemToggle: PropTypes.func,
   }
 
   constructor(props) {
     super()
-    this.state = { open: props.open, visible: props.visible, immediate: false }
+    this.state = {
+      open: props.open,
+      visible: props.visible,
+      immediate: false,
+      id: props.itemId,
+    }
   }
 
-  toggle = () =>
-    this.props.children &&
-    this.setState(state => ({ open: !state.open, immediate: false }))
+  toggle = () => {
+    if (typeof this.props.children !== 'undefined') {
+      this.props.onItemToggle &&
+        this.props.onItemToggle(this.state.id, !this.state.open)
+      this.setState(state => ({ open: !state.open, immediate: false }))
+    }
+  }
 
   toggleVisibility = () => {
     this.setState(
@@ -67,8 +77,8 @@ export default class Tree extends React.PureComponent {
     )
   }
 
-  onItemClick = event => {
-    this.props.onItemClick && this.props.onItemClick(event.target.dataset.id)
+  onItemClick = () => {
+    this.props.onItemClick && this.props.onItemClick(this.state.id)
   }
 
   componentWillReceiveProps(props) {
@@ -103,10 +113,7 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span
-          data-id={this.props.dataId}
-          onClick={this.onItemClick}
-          style={{ verticalAlign: 'middle' }}>
+        <span onClick={this.onItemClick} style={{ verticalAlign: 'middle' }}>
           {content}
         </span>
         <Spring
