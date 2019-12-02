@@ -46,23 +46,39 @@ export default class Tree extends React.PureComponent {
     visible: PropTypes.bool,
     canHide: PropTypes.bool,
     content: PropTypes.node,
+    itemId: PropTypes.string,
     springConfig: PropTypes.func,
+    onItemClick: PropTypes.func,
+    onItemToggle: PropTypes.func,
   }
 
   constructor(props) {
     super()
-    this.state = { open: props.open, visible: props.visible, immediate: false }
+    this.state = {
+      open: props.open,
+      visible: props.visible,
+      immediate: false,
+      id: props.itemId,
+    }
   }
 
-  toggle = () =>
-    this.props.children &&
-    this.setState(state => ({ open: !state.open, immediate: false }))
+  toggle = () => {
+    if (typeof this.props.children !== 'undefined') {
+      this.props.onItemToggle &&
+        this.props.onItemToggle(this.state.id, !this.state.open)
+      this.setState(state => ({ open: !state.open, immediate: false }))
+    }
+  }
 
   toggleVisibility = () => {
     this.setState(
       state => ({ visible: !state.visible, immediate: true }),
       () => this.props.onClick && this.props.onClick(this.state.visible)
     )
+  }
+
+  onItemClick = () => {
+    this.props.onItemClick && this.props.onItemClick(this.state.id)
   }
 
   componentWillReceiveProps(props) {
@@ -97,7 +113,9 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span style={{ verticalAlign: 'middle' }}>{content}</span>
+        <span onClick={this.onItemClick} style={{ verticalAlign: 'middle' }}>
+          {content}
+        </span>
         <Spring
           native
           immediate={immediate}
@@ -112,7 +130,7 @@ export default class Tree extends React.PureComponent {
             opacity: open ? 1 : 0,
             transform: open ? 'translate3d(0px,0,0)' : 'translate3d(20px,0,0)',
           }}
-          {...springConfig && springConfig(open)}
+          {...(springConfig && springConfig(open))}
           render={Contents}>
           {children}
         </Spring>
