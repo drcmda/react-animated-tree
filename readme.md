@@ -42,7 +42,7 @@ config = open => ({
 
 const SpecialTree = props => <Tree {...props} springConfig={config} />
 
-<SpecialTree content="Orange">
+<SpecialTree content="Oranges">
   <SpecialTree content="Juice" />
 </SpecialTree>
 ```
