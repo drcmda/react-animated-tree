@@ -1,7 +1,10 @@
 {
-  "name": "react-animated-tree",
+  "name": "react-animating-tree",
   "version": "1.0.8",
   "description": "Animate React with ease",
+  "author": "Dimuth Ruwantha original credits to Paul Henschel",
+  "license": "ISC",
+  "repository": "DimuthRuwantha/react-animated-tree",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -41,10 +44,6 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/drcmda/react-animated-tree.git"
-  },
   "keywords": [
     "react",
     "motion",
@@ -52,12 +51,6 @@
     "animation",
     "spring"
   ],
-  "author": "Paul Henschel",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/drcmda/react-animated-tree/issues"
-  },
-  "homepage": "https://github.com/drcmda/react-animated-tree#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
