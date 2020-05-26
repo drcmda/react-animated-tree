@@ -51,12 +51,12 @@ export default class Tree extends React.PureComponent {
 
   constructor(props) {
     super()
-    this.state = { open: props.open, visible: props.visible, immediate: false }
+    this.state = { open: props.open, visible: props.visible, immediate: props.toggleImmediate }
   }
 
   toggle = () =>
     this.props.children &&
-    this.setState(state => ({ open: !state.open, immediate: false }))
+    this.setState(state => ({ open: !state.open }))
 
   toggleVisibility = () => {
     this.setState(
@@ -65,7 +65,7 @@ export default class Tree extends React.PureComponent {
     )
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState(state => {
       return ['open', 'visible'].reduce(
         (acc, val) =>
@@ -103,8 +103,7 @@ export default class Tree extends React.PureComponent {
           immediate={immediate}
           config={{
             ...config.default,
-            restSpeedThreshold: 1,
-            restDisplacementThreshold: 0.01,
+            duration: 3000
           }}
           from={{ height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' }}
           to={{

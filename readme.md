@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/drcmda/react-animated-tree.svg?branch=master)](https://travis-ci.org/drcmda/react-animated-tree) [![npm version](https://badge.fury.io/js/react-animated-tree.svg)](https://badge.fury.io/js/react-animated-tree)
 
-    npm install react-animated-tree
+    npm install react-animating-tree
 
 A simple, configurable tree view control for React.
 
@@ -17,12 +17,13 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 * `visible`, optional: default visible state
 * `onClick`, optional: click events on the eye
 * `springConfig`, optional: react-spring animation config
+* `toggleImmediate`, optional: Avoid animations (boolean)
 
 ```jsx
 import Tree from 'react-animated-tree'
 
 <Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
-  <Tree content="Contents">
+  <Tree content="Contents" toggleImmediate={true} >
     <Tree content="Seeds" />
   <Tree>
 <Tree>
