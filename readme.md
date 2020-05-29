@@ -5,7 +5,7 @@
 A simple, configurable tree view control for React.
 
 <p align="middle">
-  <img src="assets/tree.gif" width="600" />
+  <img src="assets/tree.gif" width="300" />
 </p>
 
 Demo: https://codesandbox.io/embed/rrw7mrknyp
