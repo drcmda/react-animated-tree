@@ -13,19 +13,25 @@ var config = open => ({
 })
 
 function App() {
+
+  function nodeClicked(e){
+    console.log(e)
+    
+  }
+
   return (
     <div>
       <Tree content="Apple" type="Fruit" open canHide visible 
-      onClick={console.log} springConfig={config} toggleImmediate={true} >
-  <Tree content="Contents" toggleImmediate={true}>
-    <Tree content="Seeds" />
-    <Tree content="Seeds" />
-    <Tree content="Seeds" />
-    <Tree content="Seeds" />
-    <Tree content="Seeds" />
-    <Tree content="Seeds" />
-  </Tree>
-  </Tree>
+        onClick={console.log} springConfig={config} toggleImmediate={true} >
+        <Tree content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={true}>
+          <Tree onNodeClick={() => nodeClicked("something")} id={1343} content="Seeds" />
+          <Tree content="Seeds" />
+          <Tree content="Seeds" />
+          <Tree content="Seeds" />
+          <Tree content="Seeds" />
+          <Tree content="Seeds" />
+        </Tree>
+      </Tree>
     </div>
   );
 }

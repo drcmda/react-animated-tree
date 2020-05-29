@@ -11,8 +11,10 @@ A simple, configurable tree view control for React.
 Demo: https://codesandbox.io/embed/rrw7mrknyp
 
 * `content`, Name of the node (string or React-component)
+* `id`, id of the node.
 * `type`, optional description, good for displaying icons, too (string or React-component)
 * `open`, optional: default open state
+* `onNodeClick`, optional: Node click event default it returns id
 * `canHide`, optional: when set true displays an eye icon
 * `visible`, optional: default visible state
 * `onClick`, optional: click events on the eye
@@ -24,7 +26,7 @@ import Tree from 'react-animated-tree'
 
 <Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
   <Tree content="Contents" toggleImmediate={true} >
-    <Tree content="Seeds" />
+    <Tree content="Seeds" onNodeClick={nodeClicked} id={1343} />
   <Tree>
 <Tree>
 ```

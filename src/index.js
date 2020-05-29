@@ -47,11 +47,18 @@ export default class Tree extends React.PureComponent {
     canHide: PropTypes.bool,
     content: PropTypes.node,
     springConfig: PropTypes.func,
+    onNodeClick: PropTypes.func,
   }
 
   constructor(props) {
     super()
-    this.state = { open: props.open, visible: props.visible, immediate: props.toggleImmediate }
+    this.state = {
+      id: props.id, 
+      open: props.open, 
+      visible: props.visible, 
+      immediate: props.toggleImmediate 
+    }
+    this.onNodeClick = this.onNodeClick.bind(this)
   }
 
   toggle = () =>
@@ -63,6 +70,10 @@ export default class Tree extends React.PureComponent {
       state => ({ visible: !state.visible, immediate: true }),
       () => this.props.onClick && this.props.onClick(this.state.visible)
     )
+  }
+
+  onNodeClick = () => {
+    this.props.onNodeClick && this.props.onNodeClick(this.state.id)
   }
 
   UNSAFE_componentWillReceiveProps(props) {
@@ -97,7 +108,9 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span style={{ verticalAlign: 'middle' }}>{content}</span>
+        <span style={{ verticalAlign: 'middle', cursor: 'pointer'  }} onClick={this.onNodeClick}>
+          {content}
+        </span>
         <Spring
           native
           immediate={immediate}
