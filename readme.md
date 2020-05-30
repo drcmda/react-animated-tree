@@ -1,5 +1,5 @@
 [![NPM](https://img.shields.io/npm/v/react-animating-tree.svg)](https://www.npmjs.com/package/react-animating-tree)
-![Build](https://github.com/DimuthRuwantha/react-animating-tree/workflows/Node.js%20CI/badge.svg?branch=master)
+![Node.js CI](https://github.com/DimuthRuwantha/react-animating-tree/workflows/Node.js%20CI/badge.svg?branch=master)
 
     npm install react-animating-tree
 
