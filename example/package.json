@@ -1,5 +1,6 @@
 {
   "name": "example",
+  "homepage": "https://DimuthRuwantha.github.io/react-animating-tree",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
