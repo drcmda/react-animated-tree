@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 //import './App.css';
-import Tree  from 'react-animated-tree'
+import Tree  from 'react-animating-tree'
 
 var config = open => ({
   from: { height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' },

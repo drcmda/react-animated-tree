@@ -23,7 +23,7 @@ Demo: https://codesandbox.io/embed/rrw7mrknyp
 * `toggleImmediate`, optional: Avoid animations (boolean)
 
 ```jsx
-import Tree from 'react-animated-tree'
+import Tree from 'react-animating-tree'
 
 <Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
   <Tree content="Contents" toggleImmediate={true} >
