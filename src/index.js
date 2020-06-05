@@ -9,8 +9,11 @@ const styles = {
     padding: '4px 0px 0px 0px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    /* overflow: 'hidden', */
     verticalAlign: 'middle',
+    color: 'red',
+    fill: "red",
+    background: 'white',
+    
   },
   toggle: {
     width: '1em',
@@ -25,12 +28,20 @@ const styles = {
     fontSize: '0.6em',
     verticalAlign: 'middle',
   },
+  node: {
+    verticalAlign: 'middle', 
+    cursor: 'pointer'
+  },
   contents: {
     willChange: 'transform, opacity, height',
     marginLeft: 6,
     padding: '4px 0px 0px 14px',
     borderLeft: '1px dashed rgba(255,255,255,0.4)',
   },
+  icon: {
+   // will be used same colors of tree.
+   // user can override this and apply colors
+  }
 }
 
 const Contents = ({ children, ...style }) => (
@@ -89,13 +100,19 @@ export default class Tree extends React.PureComponent {
   render() {
     const { open, visible, immediate } = this.state
     const { children, content, type, style, canHide, springConfig } = this.props
-    const Icon =
-      Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
+    
+    const Icon = Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
+
     return (
-      <div style={{ ...styles.tree, ...style }} className="treeview">
+      <div style={{ ...styles.tree, ...style }} >
         <Icon
           className="toggle"
-          style={{ ...styles.toggle, opacity: children ? 1 : 0.3 }}
+          style={{
+            fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
+            background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
+            ...styles.toggle,
+            opacity: children ? 1 : 0.3, 
+          }}
           onClick={this.toggle}
         />
         <span style={{ ...styles.type, marginRight: type ? 10 : 0 }}>
@@ -104,11 +121,16 @@ export default class Tree extends React.PureComponent {
         {canHide && (
           <Icons.EyeO
             className="toggle"
-            style={{ ...styles.toggle, opacity: visible ? 1 : 0.4 }}
+            style={{
+              fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
+              background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
+              ...styles.toggle, 
+              opacity: visible ? 1 : 0.4 
+            }}
             onClick={this.toggleVisibility}
           />
         )}
-        <span style={{ verticalAlign: 'middle', cursor: 'pointer'  }} onClick={this.onNodeClick}>
+        <span style={{...styles.node }} onClick={this.onNodeClick}>
           {content}
         </span>
         <Spring
@@ -116,7 +138,6 @@ export default class Tree extends React.PureComponent {
           immediate={immediate}
           config={{
             ...config.default,
-            duration: 3000
           }}
           from={{ height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' }}
           to={{

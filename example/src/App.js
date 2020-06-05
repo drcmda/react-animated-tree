@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-//import './App.css';
 import Tree  from 'react-animating-tree'
 
 var config = open => ({
@@ -12,6 +10,12 @@ var config = open => ({
   },
 })
 
+var styles = {
+  icon: {
+    fill: 'purple',
+    background: 'grey'
+  }
+}
 function App() {
 
   function nodeClicked(e){
@@ -21,12 +25,12 @@ function App() {
 
   return (
     <div>
-      <Tree content="Apple" type="Fruit" open canHide visible 
+      <Tree content="Apple" type="Fruit" open canHide visible style={{...styles}}
         onClick={console.log} springConfig={config} toggleImmediate={true} >
         <Tree content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={true}>
           <Tree onNodeClick={() => nodeClicked("something")} id={1343} content="Seeds" />
           <Tree content="Seeds" />
-          <Tree content="Seeds" />
+          <Tree content="Seeds"  />
           <Tree content="Seeds" />
           <Tree content="Seeds" />
           <Tree content="Seeds" />
