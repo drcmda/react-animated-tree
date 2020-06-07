@@ -10,8 +10,8 @@ const styles = {
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     verticalAlign: 'middle',
-    color: 'red',
-    fill: "red",
+    color: 'black',
+    fill: "black",
     background: 'white',
     
   },
@@ -70,6 +70,8 @@ export default class Tree extends React.PureComponent {
       immediate: props.toggleImmediate 
     }
     this.onNodeClick = this.onNodeClick.bind(this)
+    this.onMouseDown = this.onMouseDown.bind(this)
+    this.onMouseUp = this.onMouseUp.bind(this)
   }
 
   toggle = () =>
@@ -81,6 +83,16 @@ export default class Tree extends React.PureComponent {
       state => ({ visible: !state.visible, immediate: true }),
       () => this.props.onClick && this.props.onClick(this.state.visible)
     )
+  }
+
+  onMouseDown(e){
+    var element = e.target
+    element.style.color = "red"
+  }
+
+  onMouseUp(e){
+    var element = e.target
+    element.style.color = "inherit"
   }
 
   onNodeClick = () => {
@@ -99,17 +111,25 @@ export default class Tree extends React.PureComponent {
 
   render() {
     const { open, visible, immediate } = this.state
-    const { children, content, type, style, canHide, springConfig } = this.props
+    const { children, content, type, style = {}, canHide, springConfig } = this.props
     
     const Icon = Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
 
+    let icon = {
+        fill: "inherit",
+        background: "inherit",
+        ...style.icon
+      }
+    
     return (
-      <div style={{ ...styles.tree, ...style }} >
+      <div style={{ 
+        ...styles.tree,
+        ...style.tree 
+        }}>
         <Icon
           className="toggle"
           style={{
-            fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
-            background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
+            ...icon,
             ...styles.toggle,
             opacity: children ? 1 : 0.3, 
           }}
@@ -130,7 +150,7 @@ export default class Tree extends React.PureComponent {
             onClick={this.toggleVisibility}
           />
         )}
-        <span style={{...styles.node }} onClick={this.onNodeClick}>
+        <span style={{...styles.node }} onClick={this.onNodeClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
           {content}
         </span>
         <Spring

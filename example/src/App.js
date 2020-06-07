@@ -11,9 +11,13 @@ var config = open => ({
 })
 
 var styles = {
+  tree: {
+    color: 'blue',
+    background: 'red',
+  },
   icon: {
-    fill: 'purple',
-    background: 'grey'
+    fill: 'black',
+    background: 'white'
   }
 }
 function App() {
