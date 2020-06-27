@@ -110,12 +110,13 @@ export default class DirTree extends React.PureComponent {
   }
 
   render() {
-    const { open, visible, immediate } = this.state
-    const { children, content, type, style = {}, canHide, springConfig } = this.props
+    const { open, immediate } = this.state
+    const { children, content, type, style = {}, springConfig, usricon } = this.props
+    console.log({...style});
     
     const ArrowIcon = open ? Icons.DownArrow : Icons.RightArrow
     
-    const Icon = children ? open ? Icons.FolderOpen : Icons.Folder : Icons.File
+    const Icon = usricon ? usricon : children ? open ? Icons.FolderOpen : Icons.Folder : Icons.File
 
     let icon = {
         fill: "inherit",
@@ -131,9 +132,9 @@ export default class DirTree extends React.PureComponent {
          <ArrowIcon
           className="toggle"
           style={{
-            ...icon,
+            fill: "inherit",
+            background: "inherit",
             ...styles.toggle,
-            opacity: children ? 1 : 0, 
             visibility : children ? 'inherit' : "hidden"
           }}
           onClick={this.toggle}
@@ -144,8 +145,7 @@ export default class DirTree extends React.PureComponent {
           <Icon
             className="toggle"
             style={{
-              fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
-              background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
+              ...icon,
               ...styles.toggle
             }}
           />
