@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Spring, config, animated } from 'react-spring'
-import DirTree from './components/DirTree'
-import * as Icons from './icons'
+import * as Icons from './../icons'
 
 const styles = {
   tree: {
@@ -51,7 +50,7 @@ const Contents = ({ children, ...style }) => (
   </animated.div>
 )
 
-export default class Tree extends React.PureComponent {
+export default class DirTree extends React.PureComponent {
   static defaultProps = { open: false, visible: true, canHide: false }
   static propTypes = {
     open: PropTypes.bool,
@@ -114,7 +113,9 @@ export default class Tree extends React.PureComponent {
     const { open, visible, immediate } = this.state
     const { children, content, type, style = {}, canHide, springConfig } = this.props
     
-    const Icon = Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
+    const ArrowIcon = open ? Icons.DownArrow : Icons.RightArrow
+    
+    const Icon = children ? open ? Icons.FolderOpen : Icons.Folder : Icons.File
 
     let icon = {
         fill: "inherit",
@@ -127,30 +128,28 @@ export default class Tree extends React.PureComponent {
         ...styles.tree,
         ...style.tree 
         }}>
-        <Icon
+         <ArrowIcon
           className="toggle"
           style={{
             ...icon,
             ...styles.toggle,
-            opacity: children ? 1 : 0.3, 
+            opacity: children ? 1 : 0, 
+            visibility : children ? 'inherit' : "hidden"
           }}
           onClick={this.toggle}
         />
         <span style={{ ...styles.type, marginRight: type ? 10 : 0 }}>
           {type}
         </span>
-        {canHide && (
-          <Icons.EyeO
+          <Icon
             className="toggle"
             style={{
               fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
               background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
-              ...styles.toggle, 
-              opacity: visible ? 1 : 0.4 
+              ...styles.toggle
             }}
-            onClick={this.toggleVisibility}
           />
-        )}
+        
         <span style={{...styles.node }} onClick={this.onNodeClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
           {content}
         </span>
@@ -174,7 +173,3 @@ export default class Tree extends React.PureComponent {
     )
   }
 }
-
-export const Tree2 = props => (
-  <DirTree {...props} />
-)
