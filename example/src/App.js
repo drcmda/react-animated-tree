@@ -37,6 +37,7 @@ function App() {
     <div className="container">
       <div className="row">
     <div className="col-md-6">
+      <h4>Tree</h4>
       <Tree content="Apple" type="Fruit" open canHide visible style={{...styles}}
         onClick={console.log} springConfig={config} toggleImmediate={false} >
         <Tree content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={false}>
@@ -50,6 +51,7 @@ function App() {
       </Tree>
       </div>
       <div className="col-md-6">
+        <h4>Tree2</h4>
       <Tree2 content="Apple" open
         onClick={console.log} springConfig={config} toggleImmediate={true} style={{ icon: {fill: 'orange'}}} >
         <Tree2 content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={true} usricon={calanderIcon} style={{...styles}}> 
