@@ -1,5 +1,5 @@
 {
-  "dist/react-animated-tree.es.js": {
+  "dist/react-animating-tree.es.js": {
     "bundled": 7393,
     "minified": 5373,
     "gzipped": 1949,
@@ -13,7 +13,7 @@
       }
     }
   },
-  "dist/react-animated-tree.umd.js": {
+  "dist/react-animating-tree.umd.js": {
     "bundled": 9768,
     "minified": 5702,
     "gzipped": 2227

@@ -62,5 +62,5 @@ function createConfig(entry, out, name) {
 }
 
 export default [
-  ...createConfig('index', 'react-animated-tree', 'ReactAnimatedTree'),
+  ...createConfig('index', 'react-animating-tree', 'ReactAnimatedTree'),
 ]

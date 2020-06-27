@@ -4,7 +4,7 @@
   "description": "Animate React with ease",
   "author": "Dimuth Ruwantha original credits to Paul Henschel",
   "license": "ISC",
-  "repository": "DimuthRuwantha/react-animated-tree",
+  "repository": "DimuthRuwantha/react-animating-tree",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

@@ -36,9 +36,9 @@ function App() {
           <Tree content="Seeds" />
           <Tree content="Seeds"  />
           <Tree content="Seeds" />
-          <Tree content="Seeds" />
-          <Tree content="Seeds" />
         </Tree>
+        <Tree content="Seeds" />
+          <Tree content="Seeds" />
       </Tree>
     </div>
   );
