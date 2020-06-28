@@ -159,6 +159,8 @@ export default class Tree extends React.PureComponent {
           immediate={immediate}
           config={{
             ...config.default,
+            restSpeedThreshold: 1,
+            restDisplacementThreshold: 0.01,
           }}
           from={{ height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' }}
           to={{
