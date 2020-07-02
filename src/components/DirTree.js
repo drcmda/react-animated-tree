@@ -11,7 +11,7 @@ const styles = {
     whiteSpace: 'nowrap',
     verticalAlign: 'middle',
     color: 'black',
-    fill: "black",
+    fill: "#212529",
     background: 'white',
     
   },
@@ -112,7 +112,6 @@ export default class DirTree extends React.PureComponent {
   render() {
     const { open, immediate } = this.state
     const { children, content, type, style = {}, springConfig, usricon } = this.props
-    console.log({...style});
     
     const ArrowIcon = open ? Icons.DownArrow : Icons.RightArrow
     
