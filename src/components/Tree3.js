@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Spring, config, animated } from 'react-spring'
-import DirTree from './components/DirTree'
-import Tree3 from './components/Tree3'
-import * as Icons from './icons'
+import * as Icons from './../icons'
 
 const styles = {
   tree: {
@@ -13,7 +11,7 @@ const styles = {
     whiteSpace: 'nowrap',
     verticalAlign: 'middle',
     color: 'black',
-    fill: "black",
+    fill: "#212529",
     background: 'white',
     
   },
@@ -52,7 +50,7 @@ const Contents = ({ children, ...style }) => (
   </animated.div>
 )
 
-export default class Tree extends React.PureComponent {
+export default class Tree3 extends React.PureComponent {
   static defaultProps = { open: false, visible: true, canHide: false }
   static propTypes = {
     open: PropTypes.bool,
@@ -112,10 +110,12 @@ export default class Tree extends React.PureComponent {
   }
 
   render() {
-    const { open, visible, immediate } = this.state
-    const { children, content, type, style = {}, canHide, springConfig } = this.props
+    const { open, immediate } = this.state
+    const { children, content, type, style = {}, springConfig, usricon } = this.props
     
-    const Icon = Icons[`${children ? (open ? 'Minus' : 'Plus') : 'Close'}SquareO`]
+    const ArrowIcon = open ? Icons.DownArrow : Icons.RightArrow
+    
+    const Icon = usricon ? usricon : children ? open ? Icons.FolderOpen : Icons.Folder : Icons.File
 
     let icon = {
         fill: "inherit",
@@ -128,30 +128,27 @@ export default class Tree extends React.PureComponent {
         ...styles.tree,
         ...style.tree 
         }}>
-        <Icon
+         <ArrowIcon
           className="toggle"
           style={{
-            ...icon,
+            fill: "inherit",
+            background: "inherit",
             ...styles.toggle,
-            opacity: children ? 1 : 0.3, 
+            visibility : children ? 'inherit' : "hidden"
           }}
           onClick={this.toggle}
         />
         <span style={{ ...styles.type, marginRight: type ? 10 : 0 }}>
           {type}
         </span>
-        {canHide && (
-          <Icons.EyeO
+          <Icon
             className="toggle"
             style={{
-              fill: style ? style.icon ? style.icon.fill : 'inherit' : 'inherit',
-              background: style ? style.icon ? style.icon.background : 'inherit' : 'inherit',
-              ...styles.toggle, 
-              opacity: visible ? 1 : 0.4 
+              ...icon,
+              ...styles.toggle
             }}
-            onClick={this.toggleVisibility}
           />
-        )}
+        
         <span style={{...styles.node }} onClick={this.onNodeClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
           {content}
         </span>
@@ -160,8 +157,6 @@ export default class Tree extends React.PureComponent {
           immediate={immediate}
           config={{
             ...config.default,
-            restSpeedThreshold: 1,
-            restDisplacementThreshold: 0.01,
           }}
           from={{ height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' }}
           to={{
@@ -171,17 +166,9 @@ export default class Tree extends React.PureComponent {
           }}
           {...springConfig && springConfig(open)}
           render={Contents}>
-          {children}
+          { open ? children : null}
         </Spring>
       </div>
     )
   }
 }
-
-export const Tree2 = props => (
-  <DirTree {...props} />
-)
-
-export const LazyTree = props => (
-  <Tree3 {...props} />
-)
