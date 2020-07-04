@@ -171,7 +171,7 @@ export default class Tree extends React.PureComponent {
           }}
           {...springConfig && springConfig(open)}
           render={Contents}>
-          {children}
+          { open ? children : null }
         </Spring>
       </div>
     )
