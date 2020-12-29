@@ -24,8 +24,8 @@ import Tree from 'react-animated-tree'
 <Tree content="Apple" type="Fruit" open canHide visible onClick={console.log}>
   <Tree content="Contents">
     <Tree content="Seeds" />
-  <Tree>
-<Tree>
+  </Tree>
+</Tree>
 ```
 
 Create your own effects by passing a [react-spring](https://github.com/drcmda/react-spring/) config. The config below is the default (items fade in while moving in 20px from the right). You can go wild here by rotating, flipping, etc.
