@@ -33,6 +33,11 @@ function App() {
     
   }
 
+  function toggleNode(e, custom){
+	  console.log(e);
+	  console.log(custom);
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -54,7 +59,8 @@ function App() {
         <h4>Tree2</h4>
       <Tree2 content="Apple" open
         onClick={console.log} springConfig={config} toggleImmediate={true} style={{ icon: {fill: 'orange'}}} >
-        <Tree2 content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={true} usricon={calanderIcon} style={{...styles}}> 
+        <Tree2 content="Contents" onNodeClick={() => nodeClicked("somethingx")} toggleImmediate={true} usricon={calanderIcon} style={{...styles}}
+			ontoggle={(e) => toggleNode(e, "Contents")}> 
           <Tree2 onNodeClick={() => nodeClicked("something")} id={1343} content="Seeds" usricon={calanderIcon}  />
           <Tree2 content="Seeds" style={{...styles, icon: {fill:'blue'}}} />
           <Tree2 content="Seeds"  />

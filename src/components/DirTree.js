@@ -59,6 +59,7 @@ export default class DirTree extends React.PureComponent {
     content: PropTypes.node,
     springConfig: PropTypes.func,
     onNodeClick: PropTypes.func,
+	ontoggle: PropTypes.func,
   }
 
   constructor(props) {
@@ -74,9 +75,11 @@ export default class DirTree extends React.PureComponent {
     this.onMouseUp = this.onMouseUp.bind(this)
   }
 
-  toggle = () =>
+  toggle = () => {
     this.props.children &&
-    this.setState(state => ({ open: !state.open }))
+    this.setState(state => ({ open: !state.open }));
+	this.props.ontoggle && this.props.ontoggle(!this.state.open) 
+  }
 
   toggleVisibility = () => {
     this.setState(
