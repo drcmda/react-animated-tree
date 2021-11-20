@@ -18,6 +18,8 @@ const styles = {
     marginRight: 10,
     cursor: 'pointer',
     verticalAlign: 'middle',
+    display: 'inline-block',
+    textAlign: 'left'
   },
   type: {
     textTransform: 'uppercase',
