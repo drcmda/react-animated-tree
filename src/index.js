@@ -47,6 +47,7 @@ export default class Tree extends React.PureComponent {
     canHide: PropTypes.bool,
     content: PropTypes.node,
     springConfig: PropTypes.func,
+    onToggle: PropTypes.func,
   }
 
   constructor(props) {
@@ -54,9 +55,11 @@ export default class Tree extends React.PureComponent {
     this.state = { open: props.open, visible: props.visible, immediate: false }
   }
 
-  toggle = () =>
+  toggle = () => {
+    if (this.props.onToggle) this.props.onToggle(!this.state.open)
     this.props.children &&
     this.setState(state => ({ open: !state.open, immediate: false }))
+  }
 
   toggleVisibility = () => {
     this.setState(
