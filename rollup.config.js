@@ -1,25 +1,16 @@
-import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import { uglify } from 'rollup-plugin-uglify'
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
+import babel from "@rollup/plugin-babel"
+import { nodeResolve } from "@rollup/plugin-node-resolve"
+import commonjs from "@rollup/plugin-commonjs"
+import { uglify } from "rollup-plugin-uglify"
+import { sizeSnapshot } from "rollup-plugin-size-snapshot"
 
 const isExternal = id => !id.startsWith('.') && !id.startsWith('/')
 const getBabelOptions = ({ useESModules }) => ({
-  babelrc: false,
-  exclude: '**/node_modules/**',
-  runtimeHelpers: true,
-  presets: [
-    ['@babel/preset-env', { loose: true, modules: false }],
-    ['@babel/preset-stage-2', { loose: true, decoratorsLegacy: true }],
-    '@babel/preset-react',
-  ],
-  plugins: [
-    [
-      '@babel/transform-runtime',
-      { polyfill: false, useBuiltIns: true, useESModules },
-    ],
-  ],
+	babelrc: false,
+	exclude: "**/node_modules/**",
+	babelHelpers: "runtime",
+	presets: ["@babel/react", "@babel/env"],
+	plugins: [["@babel/transform-runtime", { useESModules }]],
 })
 
 function createConfig(entry, out, name) {
@@ -52,10 +43,10 @@ function createConfig(entry, out, name) {
       external: ['react', 'react-dom', 'prop-types', 'react-spring'],
       plugins: [
         babel(getBabelOptions({ useESModules: false })),
-        resolve(),
-        commonjs(),
-        sizeSnapshot(),
-        uglify({ compress: true, mangle: { toplevel: true } }),
+				nodeResolve(),
+				commonjs(),
+				sizeSnapshot(),
+				uglify({ compress: true, mangle: { toplevel: true } }),
       ],
     },
   ]
