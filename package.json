@@ -2,9 +2,12 @@
   "name": "@chronosye/react-animated-tree",
   "version": "1.0.0",
   "description": "Animate React with ease",
-  "main": "dist/react-animated-tree.cjs.js",
-  "module": "dist/react-animated-tree.es.js",
-  "typings": "index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "engines": {
+    "node": ">=10"
+  },
   "files": [
     "dist",
     "src",
@@ -13,11 +16,16 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "rollup -c",
-    "prepare": "npm run build",
-    "test": "echo will do",
-    "precommit": "lint-staged"
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepublish": "run-s build",
+    "test": "run-s test:unit test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "predeploy": "cd example && yarn install && yarn run build",
+    "deploy": "gh-pages -d example/build"
   },
   "prettier": {
     "semi": false,
@@ -33,10 +41,6 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chronosye/react-animated-tree.git"
-  },
   "keywords": [
     "react",
     "motion",
@@ -44,12 +48,6 @@
     "animation",
     "spring"
   ],
-  "author": "Paul Henschel",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chronosye/react-animated-tree/issues"
-  },
-  "homepage": "https://github.com/chronosye/react-animated-tree#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
