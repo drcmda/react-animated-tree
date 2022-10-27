@@ -36,6 +36,11 @@ export interface TreeProps {
   onClick?: React.MouseEventHandler<any>;
 
   /**
+   * Event handler for clicks on the toggler icon
+   */
+  onToggle?: React.MouseEventHandler<any>;
+  
+  /**
    * Custom react-spring animation config
    */
   springConfig?: Function;
